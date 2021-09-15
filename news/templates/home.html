@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Document</title>
+    <title>News Django</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">News Website</a>
+        <a class="navbar-brand" href="/">News Website</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,11 +35,13 @@
                     </div>
                     <!--end of col-->
                     <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Enter keyword to search..." name="search">
+                        <input class="form-control form-control-lg form-control-borderless" type="search"
+                            placeholder="Enter keyword to search..." name="search">
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
-                        <button class="btn btn-lg btn-outline-dark" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                        <button class="btn btn-lg btn-outline-dark" type="submit"><i class="fa fa-search"
+                                aria-hidden="true"></i> Search</button>
                     </div>
                     <!--end of col-->
                 </div>
@@ -47,10 +49,40 @@
         </div>
         <!--end of col-->
     </div>
-    
+
     <!--end search bar-->
     <div class="container">
-        <h3>News List</h3>
+        <nav class="navbar navbar-expand-md ">
+            <h4 id="cat" class="p-2">Categories: </h4>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" style="align-items: flex-start; display: inline-flexbox;">
+                    <li class="nav-item">
+                        <h5><a href="?search=business" class="badge badge-pill badge-primary"
+                                style="color: #ffffff;">Business</a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a href="?search=politics" class="badge badge-pill badge-primary"
+                                style="color: #ffffff;">Politics</a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a href="?search=sports" class="badge badge-pill badge-primary"
+                                style="color: #ffffff;">Sports</a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a href="?search=india" class="badge badge-pill badge-primary"
+                                style="color: #ffffff;">India</a></h5>
+                    </li>
+                    <li class="nav-item">
+                        <h5><a href="?search=world" class="badge badge-pill badge-primary"
+                                style="color: #ffffff;">World</a></h5>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h3 class="m-4 p-4">News List</h3>
         <table class="table table-striped">
             <tr>
                 <th>ID</th>
@@ -62,6 +94,12 @@
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
                 <td>{{item.content}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>No Results found!</td>
             </tr>
             {% endfor %}
         </table>
