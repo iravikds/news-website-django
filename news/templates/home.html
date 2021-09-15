@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">News Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+
+            </div>
+        </div>
+    </nav>
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fa fa-map-marker fa-2x h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Enter keyword to search..." name="search">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-outline-dark" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
+    
+    <!--end search bar-->
+    <div class="container">
+        <h3>News List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th style="width:80%">Content</th>
+            </tr>
+            {% for item in news %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.content}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+</body>
+
+</html>
